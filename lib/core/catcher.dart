@@ -243,32 +243,32 @@ class Catcher with ReportModeAction {
   void _loadDeviceInfo() {
     final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
     if (ApplicationProfileManager.isWeb()) {
-      deviceInfo.webBrowserInfo.then((webBrowserInfo) {
+      deviceInfo.webBrowserInfo.then((dynamic webBrowserInfo) {
         _loadWebParameters(webBrowserInfo);
         _removeExcludedParameters();
       });
     } else if (ApplicationProfileManager.isLinux()) {
-      deviceInfo.linuxInfo.then((linuxDeviceInfo) {
+      deviceInfo.linuxInfo.then((dynamic linuxDeviceInfo) {
         _loadLinuxParameters(linuxDeviceInfo);
         _removeExcludedParameters();
       });
     } else if (ApplicationProfileManager.isWindows()) {
-      deviceInfo.windowsInfo.then((windowsInfo) {
+      deviceInfo.windowsInfo.then((dynamic windowsInfo) {
         _loadWindowsParameters(windowsInfo);
         _removeExcludedParameters();
       });
     } else if (ApplicationProfileManager.isMacOS()) {
-      deviceInfo.macOsInfo.then((macOsDeviceInfo) {
+      deviceInfo.macOsInfo.then((dynamic macOsDeviceInfo) {
         _loadMacOSParameters(macOsDeviceInfo);
         _removeExcludedParameters();
       });
     } else if (ApplicationProfileManager.isAndroid()) {
-      deviceInfo.androidInfo.then((androidInfo) {
+      deviceInfo.androidInfo.then((dynamic androidInfo) {
         _loadAndroidParameters(androidInfo);
         _removeExcludedParameters();
       });
     } else if (ApplicationProfileManager.isIos()) {
-      deviceInfo.iosInfo.then((iosInfo) {
+      deviceInfo.iosInfo.then((dynamic iosInfo) {
         _loadIosParameters(iosInfo);
         _removeExcludedParameters();
       });
@@ -355,7 +355,6 @@ class Catcher with ReportModeAction {
   void _loadAndroidParameters(AndroidDeviceInfo androidDeviceInfo) {
     try {
       _deviceParameters["id"] = androidDeviceInfo.id;
-      _deviceParameters["androidId"] = androidDeviceInfo.androidId;
       _deviceParameters["board"] = androidDeviceInfo.board;
       _deviceParameters["bootloader"] = androidDeviceInfo.bootloader;
       _deviceParameters["brand"] = androidDeviceInfo.brand;
